@@ -29,6 +29,18 @@ class database{
 
         }
 
-    } 
+    }
+    
+    function isUsernameExists($username) {
+
+        $con = $this->opencon();
+
+        $stmt = $con->prepare("SELECT COUNT(*) FROM Admin Where admin_username = ?");
+        $stmt->execute([$username]);
+        $count = $stmt->fetchColumn();
+
+        return $count > 0;
+
+    }
 
 }
