@@ -6,6 +6,12 @@ require_once('classes/database.php');
 $sweetAlertConfig = "";
 $con = new database();
 
+if (isset($_SESSION['admin_ID'])) {
+
+  header('Location: index.php');
+
+}
+
 if (isset($_POST['login'])) {
   
   $username = $_POST['username'];
